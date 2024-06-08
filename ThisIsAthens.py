@@ -67,7 +67,7 @@ class Event:
         try:
             return self.html.find('li', {'class', 'lh-1 icon-tickets'}).text.strip()
         except:
-            pass
+            return "Free"
             
     def date(self):
         dates = self.html.find('li', {'class', 'lh-1 icon-events'}).findAll('time')
@@ -95,19 +95,19 @@ class Event:
         try:
             return clean(self.html.find('li', {'class', 'lh-1 icon-archive'}).text)
         except:
-            pass
+            return ""
 
     def location(self):
         try:
             return clean(self.html.find('li', {'class', 'lh-1 icon-pin'}).find('a')['title'])
         except:
-            pass
+            return ""
 
     def social(self):
         try:
             return self.html.find('li', {'class', 'lh-1 icon-web'}).find('a')['href']
         except:
-            pass
+            return ""
 
 def get_events():
     
